@@ -1,0 +1,115 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Zookeeper
+metadata:
+  name: zookeeper
+  namespace: heartbeat
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-zookeeper:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  dataVolumeCapacity: 10Gi
+  logVolumeCapacity: 10Gi
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Kafka
+metadata:
+  name: kafka
+  namespace: heartbeat
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-server:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  dataVolumeCapacity: 10Gi
+  metricReporter:
+    enabled: true
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Connect
+metadata:
+  name: connect
+  namespace: heartbeat
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-server-connect:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  internalTopicReplicationFactor: 1
+  build:
+    onDemand:
+      plugins:
+        confluentHub:
+        - name: kafka-connect-influxdb
+          owner: confluentinc
+          version: 1.2.3
+        - name: kafka-connect-twitter
+          owner: jcustenborder
+          version: 0.3.34
+        locationType: confluentHub
+    type: onDemand
+  dependencies:
+    kafka:
+      bootstrapEndpoint: kafka:9071
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: KsqlDB
+metadata:
+  name: ksqldb
+  namespace: heartbeat
+spec:
+  replicas: 1
+  internalTopicReplicationFactor: 1
+  image:
+    application: confluentinc/cp-ksqldb-server:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  dataVolumeCapacity: 10Gi
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: ControlCenter
+metadata:
+  name: controlcenter
+  namespace: heartbeat
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-enterprise-control-center:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  dataVolumeCapacity: 10Gi
+  internalTopicReplicatorFactor: 1
+  dependencies:
+    schemaRegistry:
+      url: http://schemaregistry.heartbeat.svc.cluster.local:8081
+    ksqldb:
+    - name: ksqldb
+      url: http://ksqldb.heartbeat.svc.cluster.local:8088
+    connect:
+    - name: connect
+      url: http://connect.heartbeat.svc.cluster.local:8083
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: SchemaRegistry
+metadata:
+  name: schemaregistry
+  namespace: heartbeat
+spec:
+  replicas: 1
+  internalTopicReplicatorFactor: 1
+  image:
+    application: confluentinc/cp-schema-registry:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: KafkaRestProxy
+metadata:
+  name: kafkarestproxy
+  namespace: heartbeat
+spec:
+  replicas: 1
+  image:
+    application: confluentinc/cp-kafka-rest:7.1.0
+    init: confluentinc/confluent-init-container:2.3.0
+  dependencies:
+    schemaRegistry:
+      url: http://schemaregistry.heartbeat.svc.cluster.local:8081

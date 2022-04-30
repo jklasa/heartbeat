@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: dice-code
+    namespace: heartbeat
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 256M
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: dice-code
+    labels:
+        type: local
+spec:
+    capacity:
+        storage: 256M
+    accessModes:
+        - ReadWriteOnce
+    claimRef:
+        namespace: heartbeat
+        name: dice-code
+    hostPath:
+        path: "/home/jklasa/jklasa/school/ai-systems/heartbeat/dev"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: dice-app
+    labels:
+        app: dice
+spec:
+    selector:
+        matchLabels:
+            app: dice
+    template:
+        metadata:
+            labels:
+                app: dice
+        spec:
+            volumes:
+                - name: code-local
+                  persistentVolumeClaim:
+                      claimName: dice-code
+            containers:
+              - name: heartbeat-dev
+                command:
+                    - sleep
+                    - infinity
+                image: jklasa27/heartbeat:dev
+                volumeMounts:
+                    - mountPath: "/app"
+                      name: code-local
+
