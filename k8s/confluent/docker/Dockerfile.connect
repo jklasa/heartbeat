@@ -1,3 +1,0 @@
-FROM confluentinc/cp-server-connect:7.1.0
-
-RUN confluent-hub install confluentinc/kafka-connect-influxdb:1.2.3
