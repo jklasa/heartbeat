@@ -3,7 +3,7 @@ layout: default
 title: Decomposition
 nav_order: 1
 description: ""
-permalink: /
+permalink: /6ds/decomposition
 ---
 
 # The Problem
