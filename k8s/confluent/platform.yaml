@@ -43,7 +43,7 @@ spec:
     onDemand:
       plugins:
         confluentHub:
-          - name: kafka-connect-influxdb
+        - name: kafka-connect-influxdb
           owner: confluentinc
           version: 1.2.3
         - name: kafka-connect-twitter

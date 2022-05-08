@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a services=(ingest analyze)
+declare -a services=(ingest analyze idb)
 
 for service in "${services[@]}"; do
     docker build ./src/ -t jklasa27/heartbeat:$service -f ./src/${service}/Dockerfile

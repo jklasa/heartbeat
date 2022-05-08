@@ -16,8 +16,8 @@ echo -e $line
 echo -e "Common\n"
 
 microk8s kubectl create configmap common-configs \
-    --from-file=kafka.ini=ingest/common/config/kafka.ini \
-    --from-file=registry.json=ingest/common/config/registry.json \
+    --from-file=kafka.ini=src/common/config/kafka.ini \
+    --from-file=registry.json=src/common/config/registry.json \
     --dry-run=client -o yaml | microk8s kubectl apply -f -
 
 # Twitter ingest
@@ -25,8 +25,8 @@ echo -e $line
 echo -e "Twitter Ingest\n"
 
 microk8s kubectl create configmap ingest-configs \
-    --from-file=ingest.yaml=ingest/config/ingest.yaml \
-    --from-file=ingest.rules=ingest/config/ru-ukr.rules \
+    --from-file=ingest.yaml=src/ingest/config/ingest.yaml \
+    --from-file=ingest.rules=src/ingest/config/ru-ukr.rules \
     --dry-run=client -o yaml | microk8s kubectl apply -f -
 
 microk8s kubectl create secret generic twitter-oauth \
@@ -40,7 +40,7 @@ echo -e $line
 echo -e "Sentiment Analysis\n"
 
 microk8s kubectl create configmap analyze-configs \
-    --from-file=analyzer.yaml=analyze/config/analyzer.yaml \
+    --from-file=analyzer.yaml=src/analyze/config/analyzer.yaml \
     --dry-run=client -o yaml | microk8s kubectl apply -f -
 
 microk8s kubectl apply -f k8s/analyze.yaml
@@ -51,6 +51,10 @@ echo -e "Influx Sink\n"
 
 microk8s kubectl create secret generic idb-auth \
     --from-literal=token=$IDB_TOKEN \
+    --dry-run=client -o yaml | microk8s kubectl apply -f -
+
+microk8s kubectl create configmap idb-configs \
+    --from-file=idb.yaml=src/idb/config/idb.yaml \
     --dry-run=client -o yaml | microk8s kubectl apply -f -
 
 microk8s kubectl apply -f k8s/idb.yaml
