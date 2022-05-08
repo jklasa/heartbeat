@@ -3,7 +3,8 @@ layout: default
 title: Deployment
 nav_order: 1
 description: ""
-hash_children: true
+has_children: true
+parent: 6Ds
 ---
 
 # The Problem
