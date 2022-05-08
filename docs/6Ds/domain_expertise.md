@@ -4,6 +4,7 @@ title: "Domain Expertise"
 nav_order: 2
 description: ""
 permalink: /6ds/domain-expertise
+parent: 6Ds
 ---
 
 # Application of Domain Expertise
