@@ -4,7 +4,6 @@ title: Heartbeat
 nav_order: 1
 description: ""
 permalink: /
-has_children: true
 ---
 
 # Heartbeat
