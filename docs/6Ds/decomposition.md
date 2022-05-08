@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Heartbeat
+title: Decomposition
 nav_order: 1
 description: ""
 permalink: /6ds/decomposition
