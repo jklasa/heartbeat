@@ -1,7 +1,7 @@
 remote_theme: just-the-docs/just-the-docs
 
 title: "Heartbeat"
-description: JHU AI-Enabled Systems Project
+description: "JHU AI-Enabled Systems Project"
 baseurl: "/heartbeat" # the subpath of your site, e.g. /blog
 url: "https://jklasa.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
