@@ -4,10 +4,11 @@ from typing import Dict
 
 import tweepy
 import yaml
+from twitter_ingest import TwitterIngest
+
+from common.data.tweet.tweet import Tweet
 from common.logger import log
 from common.producer import Producer
-from tweet.tweet import Tweet
-from twitter_ingest import TwitterIngest
 
 
 def main(config: Dict, bearer_token: str) -> None:

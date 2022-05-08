@@ -1,0 +1,10 @@
+configs:
+    registry: common/config/registry.json
+    kafka: common/config/kafka.ini
+topics:
+    in: sentiment
+db:
+    org: influxdata
+    bucket: sentiment
+    endpoint: http://idb-influxdb2.heartbeat.svc.cluster.local:80
+    batch_size: 200

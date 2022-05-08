@@ -1,9 +1,10 @@
 import time
 
 import tweepy
+
+from common.data.tweet.tweet import Tweet
 from common.logger import log
 from common.producer import Producer
-from tweet.tweet import Tweet
 
 
 class TwitterIngest(tweepy.StreamingClient):

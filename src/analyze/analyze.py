@@ -3,12 +3,13 @@ from argparse import ArgumentParser
 from typing import Dict
 
 import yaml
+from sentiment_analyzer import SentimentAnalyzer
+
 from common.consumer import Consumer
+from common.data.sentiment.sentiment import Sentiment
+from common.data.tweet.tweet import Tweet
 from common.logger import log
 from common.producer import Producer
-from sentiment.sentiment import Sentiment
-from sentiment_analyzer import SentimentAnalyzer
-from tweet.tweet import Tweet
 
 
 def main(config: Dict) -> None:

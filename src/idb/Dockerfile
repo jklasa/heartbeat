@@ -7,15 +7,15 @@ RUN apt-get update && \
 
 WORKDIR /usr/src/app
 
-COPY ./analyze/requirements.txt ./
+COPY ./idb/requirements.txt ./
 
 RUN pip3 install --no-cache-dir --upgrade pip && \
     pip3 install --no-cache-dir -r requirements.txt && \
     rm -rf /tmp/*
 
 COPY ./common ./common
-COPY ./analyze ./
+COPY ./idb ./
 
 CMD ["sleep", "infinity"]
-#CMD ["python3", "./analyze.py", "--config", "/etc/config/analyze.yaml"]
+#CMD ["python3", "./transfer.py", "--config", "/etc/config/idb.yaml"]
 

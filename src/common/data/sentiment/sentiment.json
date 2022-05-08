@@ -1,0 +1,15 @@
+{
+    "name": "sentiment",
+    "type": "record",
+    "namespace": "heartbeat",
+    "fields": [
+        {
+            "name": "time",
+            "type": {"type": "int", "logicalType": "timestamp-millis"}
+        },
+        {"name": "task", "type": "string"},
+        {"name": "pos", "type": "float"},
+        {"name": "neu", "type": "float"},
+        {"name": "neg", "type": "float"}
+    ]
+}
