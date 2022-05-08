@@ -1,4 +1,6 @@
 import time
+import os
+import yaml
 from argparse import ArgumentParser
 from typing import Dict
 
@@ -19,7 +21,7 @@ def main(config: Dict, token: str) -> None:
     consumer.subscribe([config["topics"]["in"]])
 
     bucket = config["db"]["bucket"]
-    with InfluxDBClientAsync(
+    with InfluxDBClient(
         url=config["db"]["endpoint"], token=token, org=config["db"]["org"]
     ) as client:
         with client.write_api(
@@ -37,7 +39,9 @@ def main(config: Dict, token: str) -> None:
                     sentiment = msg.value()
                     if sentiment is not None:
                         write_client.write(
-                            bucket, record=sentiment.make_line(msg.key())
+                            bucket,
+                            record=sentiment.make_line(msg.key()),
+                            write_precision="s",
                         )
 
 

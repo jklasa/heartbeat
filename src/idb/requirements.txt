@@ -2,3 +2,4 @@ confluent_kafka==1.8.2
 PyYAML==6.0
 fastavro==1.4.11
 influxdb-client==1.28.0
+requests==2.27.1

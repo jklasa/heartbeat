@@ -21,6 +21,6 @@ class Sentiment(ADT):
 
     def make_line(self, id_) -> str:
         return (
-            f"{self.task},pos={self.pos} neu={self.neu} "
-            f"neg={self.neg} tid={id_} {self.time}"
+            f"{self.task} pos={self.pos},neu={self.neu},"
+            f"neg={self.neg},tid={id_} {self.time}"
         )
