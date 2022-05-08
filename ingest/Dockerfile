@@ -14,12 +14,9 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-#CMD ["sleep", "infinity"]
-CMD ["python3", "./ingest.py", "--use-env"]
+CMD ["sleep", "infinity"]
+#CMD ["python3", "./ingest.py", "--config", "/etc/config/ingest.yaml"]
 
 
 # NEEDS ENVIRONMENT VARS:
 #   * BEARER_TOKEN
-#   * CONSUMER_CONFIG
-#   * LOG_LEVEL
-#   * RULES_CONFIG

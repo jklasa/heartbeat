@@ -10,5 +10,5 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 COPY . .
 
 CMD ["sleep", "infinity"]
-#CMD ["python3", "./ingest.py", "--use-env"]
+#CMD ["python3", "./analyze.py", "--config", "/etc/config/analyze.yaml"]
 

@@ -1,37 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ingest
+  name: analyze
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ingest
+      app: analyze
   template:
     metadata:
       labels:
-        app: ingest
+        app: analyze
     spec:
       volumes:
       - name: all-configs
         projected:
           sources:
           - configMap:
-              name: ingest-configs
+              name: analyze-configs
           - configMap:
               name: common-configs
       containers:
-      - name: ingest
-        image: jklasa27/heartbeat:ingest
+      - name: analyze
+        image: jklasa27/heartbeat:analyze
         imagePullPolicy: Always
         volumeMounts:
         - name: all-configs
           mountPath: /etc/config
         env:
-        - name: BEARER_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: twitter-oauth
-              key: bearer
         - name: LOG_LEVEL
           value: DEBUG

@@ -1,0 +1,13 @@
+{
+    "name": "tweet",
+    "type": "record",
+    "namespace": "heartbeat",
+    "fields": [
+        {
+            "name": "time",
+            "type": {"type": "int", "logicalType": "timestamp-millis"}
+        },
+        {"name": "content", "type": "string"},
+        {"name": "task", "type": "string"}
+    ]
+}
