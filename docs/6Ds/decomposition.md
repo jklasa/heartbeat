@@ -5,7 +5,7 @@ nav_order: 1
 description: ""
 permalink: /6ds/decomposition
 has_children: false
-parent: 6ds
+parent: 6Ds
 ---
 
 # The Problem
