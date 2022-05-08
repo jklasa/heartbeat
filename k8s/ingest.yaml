@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingest
+  template:
+    metadata:
+      labels:
+        app: ingest
+    spec:
+      volumes:
+      - name: ingest-configs
+        configMap:
+          name: ingest-configs
+      containers:
+      - name: ingest
+        image: jklasa27/heartbeat:ingest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: ingest-configs
+          mountPath: /etc/config
+        env:
+        - name: BEARER_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: twitter-oauth
+              key: bearer
+        - name: PRODUCER_CONFIG
+          value: /etc/config/ingest.ini
+        - name: RULES_CONFIG
+          value: /etc/config/ingest.rules
+        - name: LOG_LEVEL
+          value: DEBUG
