@@ -14,7 +14,7 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-CMD ["sleep", "infinity"]
+#CMD ["sleep", "infinity"]
 CMD ["python3", "./ingest.py", "--use-env"]
 
 
