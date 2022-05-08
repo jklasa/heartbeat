@@ -8,3 +8,7 @@ url: "https://jklasa.github.io" # the base hostname & protocol for your site, e.
 heading_anchors: false
 
 footer_content: "2022 JHU Joel Klasa"
+
+aux_links:
+  "Joel Klasa":
+    - "https://github.com/jklasa"
