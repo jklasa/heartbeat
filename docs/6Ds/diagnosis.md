@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Diagnosis
-nav_order: 1
+nav_order: 5
 description: ""
-permalink: /diagnosis
+permalink: /6ds/diagnosis
 ---
 
 # The Problem
