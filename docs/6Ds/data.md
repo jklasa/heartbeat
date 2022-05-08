@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Data
-nav_order: 1
+nav_order: 3
 description: ""
-permalink: /
+permalink: /6ds/data
 ---
 
 # The Problem
