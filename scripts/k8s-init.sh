@@ -15,7 +15,7 @@ helm upgrade --install confluent-operator confluent/confluent-for-kubernetes --n
 
 kubectl apply -f k8s/confluent/platform.yaml
 
-helm install influxdb influxdata/influxdb2 --version 2.0.12
+helm upgrade --install idb influxdata/influxdb2
 
 echo $(kubectl get secret influxdb-influxdb2-auth -o "jsonpath={.data['admin-password']}" --namespace heartbeat | base64 --decode) > k8s/influx.pw
 

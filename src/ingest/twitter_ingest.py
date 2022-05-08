@@ -3,25 +3,23 @@ import time
 import tweepy
 from common.logger import log
 from common.producer import Producer
-from common.tweet import Tweet
+from tweet.tweet import Tweet
 
 
 class TwitterIngest(tweepy.StreamingClient):
     def __init__(
         self,
         task: str,
-        topic: str,
         producer: Producer,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self.task = task
-        self.topic = topic
         self.producer = producer
 
     def on_tweet(self, tweet):
-        payload = Tweet(tweet.created_at.timestamp(), tweet.text, self.task)
+        payload = Tweet(self.task, tweet.text, tweet.created_at.timestamp())
         self.producer.produce(key=tweet.id, value=payload)
 
     def poll(self) -> None:

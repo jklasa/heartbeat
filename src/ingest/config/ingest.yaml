@@ -1,0 +1,6 @@
+configs:
+    registry: common/config/registry.json
+    kafka: common/config/kafka.ini
+    rules: config/ru-ukr.rules
+topics:
+    out: ingest

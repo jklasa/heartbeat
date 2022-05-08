@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idb
+  template:
+    metadata:
+      labels:
+        app: idb
+    spec:
+      volumes:
+      - name: all-configs
+        projected:
+          sources:
+          - configMap:
+              name: idb-configs
+          - configMap:
+              name: common-configs
+      containers:
+      - name: idb
+        image: jklasa27/heartbeat:idb
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: all-configs
+          mountPath: /etc/config
+        env:
+        - name: IDB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: idb-auth
+              key: token
+        - name: LOG_LEVEL
+          value: DEBUG

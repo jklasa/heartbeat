@@ -44,3 +44,13 @@ microk8s kubectl create configmap analyze-configs \
     --dry-run=client -o yaml | microk8s kubectl apply -f -
 
 microk8s kubectl apply -f k8s/analyze.yaml
+
+# Influx
+echo -e $line
+echo -e "Influx Sink\n"
+
+microk8s kubectl create secret generic idb-auth \
+    --from-literal=token=$IDB_TOKEN \
+    --dry-run=client -o yaml | microk8s kubectl apply -f -
+
+microk8s kubectl apply -f k8s/idb.yaml

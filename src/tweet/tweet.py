@@ -1,4 +1,4 @@
-from ..common.adt import ADT
+from common.adt import ADT
 
 
 class Tweet(ADT):   
@@ -10,7 +10,7 @@ class Tweet(ADT):
     @classmethod
     @property
     def schema(cls) -> str:
-        schema_file = "./tweet.json"
+        schema_file = "./tweet/tweet.json"
         with open(schema_file) as f:
             schema_str = f.read()
         return schema_str

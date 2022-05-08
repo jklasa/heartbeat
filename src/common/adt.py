@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from logger import log
+from .logger import log
 
 
 class ADT(ABC):
@@ -8,7 +8,6 @@ class ADT(ABC):
         return self.__dict__
     
     @classmethod
-    @abstractmethod
     def from_dict(cls, obj, ctx):
         if obj is None:
             return None
@@ -29,9 +28,8 @@ class ADT(ABC):
             log.error("Message failed delivery: {}".format(err))
         else:
             log.debug(
-                "Produced event to {topic}: key = {key:12} value = {value:12}".format(
+                "Produced event to {topic}: key={key:12}".format(
                     topic=msg.topic(),
-                    key=msg.key().decode("utf-8"),
-                    value=msg.value().decode("utf-8"),
+                    key=int.from_bytes(msg.key(), "big"),
                 )
             )

@@ -1,4 +1,4 @@
-from ..common.adt import ADT
+from common.adt import ADT
 
 
 class Sentiment(ADT):
@@ -14,7 +14,7 @@ class Sentiment(ADT):
     @classmethod
     @property
     def schema(cls) -> str:
-        schema_file = "./schema.json"
+        schema_file = "./sentiment/sentiment.json"
         with open(schema_file) as f:
             schema_str = f.read()
         return schema_str

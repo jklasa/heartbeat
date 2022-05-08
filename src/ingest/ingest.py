@@ -1,7 +1,8 @@
 import os
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
 from typing import Dict
 
+import tweepy
 import yaml
 from common.logger import log
 from common.producer import Producer
@@ -13,7 +14,7 @@ def main(config: Dict, bearer_token: str) -> None:
     producer = Producer(
         topic=config["topics"]["out"],
         config_file=config["configs"]["kafka"],
-        registry=config["configs"]["registry"],
+        registry_file=config["configs"]["registry"],
         data=Tweet,
         do_callback=True,
     )
@@ -28,11 +29,14 @@ def main(config: Dict, bearer_token: str) -> None:
 
     current_rules = stream.get_rules()
     log.info(f"Current rules: {current_rules}")
-    stream.delete_rules([rule.id for rule in current_rules.data])
+    if current_rules.data is not None:
+        stream.delete_rules([rule.id for rule in current_rules.data])
 
     for rule in rules:
         stream.add_rules(tweepy.StreamRule(rule))
-    thread = stream.filter(tweet_fields=["id", "text", "created_at"])
+    thread = stream.filter(
+        tweet_fields=["id", "text", "created_at"], threaded=True
+    )
 
     stream.poll()
 
@@ -47,7 +51,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--config",
-        type=FileType,
+        type=str,
         default="config/ingest.yaml",
         help="Ingest config file.",
     )

@@ -1,5 +1,5 @@
 import time
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
 from typing import Dict
 
 import yaml
@@ -15,7 +15,7 @@ def main(config: Dict) -> None:
     # Set up consumer
     consumer = Consumer(
         config_file=config["configs"]["kafka"],
-        registry=config["configs"]["registry"],
+        registry_file=config["configs"]["registry"],
         data=Tweet,
     )
     consumer.subscribe([config["topics"]["in"]])
@@ -24,8 +24,8 @@ def main(config: Dict) -> None:
     producer = Producer(
         topic=config["topics"]["out"],
         config_file=config["configs"]["kafka"],
-        registry=config["configs"]["registry"],
-        to_dict=Tweet.to_dict,
+        registry_file=config["configs"]["registry"],
+        data=Sentiment,
         do_callback=True,
     )
 
@@ -33,21 +33,22 @@ def main(config: Dict) -> None:
     analyzer = SentimentAnalyzer()
 
     while True:
-        msg = consumer.poll(1.0)
-        if msg is None:
-            continue
+        for i in range(15):
+            msg = consumer.poll(1.0)
+            if msg is None:
+                continue
 
-        tweet = msg.value()
-        if tweet is not None:
-            negative, neutral, positive = analyzer.score(tweet.content)
-            sentiment = Sentiment(
-                task=tweet.task,
-                time=tweet.time,
-                pos=positive,
-                neu=neutral,
-                neg=negative,
-            )
-            producer.produce(key=msg.key(), value=sentiment)
+            tweet = msg.value()
+            if tweet is not None:
+                negative, neutral, positive = analyzer.score(tweet.content)
+                sentiment = Sentiment(
+                    task=tweet.task,
+                    time=tweet.time,
+                    pos=positive,
+                    neu=neutral,
+                    neg=negative,
+                )
+                producer.produce(key=msg.key(), value=sentiment)
         producer.poll(1.0)
             
 
@@ -57,7 +58,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--config",
-        type=FileType,
+        type=str,
         default="config/analyzer.yaml",
         help="Analyzer config file.",
     )

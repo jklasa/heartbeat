@@ -7,16 +7,16 @@ RUN apt-get update && \
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY ./analyze/requirements.txt ./
 
 RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt
+    pip3 install --no-cache-dir -r requirements.txt && \
+    rm -rf /tmp/*
 
-COPY . .
+COPY ./common ./common
+COPY ./tweet ./tweet 
+COPY ./analyze ./
 
 CMD ["sleep", "infinity"]
-#CMD ["python3", "./ingest.py", "--config", "/etc/config/ingest.yaml"]
+#CMD ["python3", "./analyze.py", "--config", "/etc/config/analyze.yaml"]
 
-
-# NEEDS ENVIRONMENT VARS:
-#   * BEARER_TOKEN

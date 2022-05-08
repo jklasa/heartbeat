@@ -13,7 +13,6 @@ class Consumer(DeserializingConsumer):
     def __init__(
         self,
         config_file: str,
-        schema_file: str,
         registry_file: str,
         data: ADT,
         *args,

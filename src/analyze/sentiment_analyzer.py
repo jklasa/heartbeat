@@ -1,3 +1,5 @@
+from typing import List
+
 from transformers import AutoModelForSequenceClassification
 from transformers import AutoTokenizer, AutoConfig
 import numpy as np
