@@ -18,7 +18,7 @@ This site hosts the documentation for the project and the underlying system. Exp
  
 ## GitHub
 
-The [GitHub page](https://github.com/jklasa/heartbeat) for the project hosts the relevant [Python code](https://github.com/jklasa/heartbeat/tree/main/src), [Kubernetes configurations, and](https://github.com/jklasa/heartbeat/tree/main/k8s) [setup scripts](https://github.com/jklasa/heartbeat/tree/main/scripts).
+The [GitHub page](https://github.com/jklasa/heartbeat) for the project hosts the relevant [Python code](https://github.com/jklasa/heartbeat/tree/main/src), [Kubernetes configurations](https://github.com/jklasa/heartbeat/tree/main/k8s), and [setup scripts](https://github.com/jklasa/heartbeat/tree/main/scripts).
 
 ## DockerHub
 
@@ -26,4 +26,4 @@ The images for this project are hosted on DockerHub [here](https://hub.docker.co
 
 ## Code Demonstration
 
-The system is quite large and requires a local Kubernetes cluster, but a sample walkthrough can be found in the navigation on the left. This walkthrough details the processes running in the cluster without running the Kafka cluster, Kubernetes node, or the database.
+The system is quite large and requires a local Kubernetes cluster, but a [sample walkthrough](/demo) can be found in the navigation on the left. This walkthrough details the processes running in the cluster without running the Kafka cluster, Kubernetes node, or the database.
