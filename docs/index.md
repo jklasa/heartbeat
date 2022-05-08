@@ -6,6 +6,15 @@ description: ""
 permalink: /
 ---
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
+
 # The Problem
 
 The impact of social media is an incredibly important topic in society today. Social media sites have power for both good and bad (subject to personal opinion, of course), and every minute, an incredible amount of information is posted and shared among millions of users. That volume of data can have significant value, but how can it be analyzed, and what type of knowledge can be gained from studying it?
