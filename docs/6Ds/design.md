@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Design
-nav_order: 1
+nav_order: 4
 description: ""
-permalink: /design
+permalink: /6ds/design
 ---
 
 # The Problem
