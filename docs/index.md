@@ -20,7 +20,7 @@ As a proof of concept for the utility of such a service, I will focus on conduct
 ## Project Documentation
 
 This site hosts the documentation for the project and the underlying system. Explore the navigation links on the left to browse the project as they pertain to the 6Ds of creating AI-enabled systems.
-
+ 
 ## GitHub
 
 The [GitHub page](https://github.com/jklasa/heartbeat) for the project hosts the relevant [Python code](https://github.com/jklasa/heartbeat/tree/main/src), [Kubernetes configurations, and](https://github.com/jklasa/heartbeat/tree/main/k8s) [setup scripts](https://github.com/jklasa/heartbeat/tree/main/scripts).
