@@ -7,4 +7,6 @@ permalink: /6ds/design
 parent: 6Ds
 ---
 
-# The Problem
+## Design
+
+HuggingFace
