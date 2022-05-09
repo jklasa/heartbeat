@@ -7,9 +7,9 @@ permalink: /6ds/data
 parent: 6Ds
 ---
 
-## Data
+# Data
 
-### Training Data
+## Training Data
 
 This system is based on the inference of data moreso than training of models on data. The training data came from the same domain as that of the test data: Twitter. For sentiment analysis, a pre-trained model was used from [HuggingFace](https://huggingface.co/), a machine learning data and model hub for AI researchers and practitioners. [This particular model](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest) was based on the [work](https://arxiv.org/pdf/2202.03829.pdf) of researchers from Cardiff University Natural Language Processing group. In their paper, *TimeLMs: Diachronic Language Models from Twitter*, authors explored language model degradation and language shifting via social media analysis. This model that resulted from this work is a transformer model based on the Bidirectional Encoder Representations from Transformers (BERT) model from [Google](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html). It was trained on a large corpus of 124+ million Tweets from January 2018 to December 2018 and fine-tuned for the task of sentiment analysis.
 
@@ -17,8 +17,7 @@ This Tweet corpus is a recent development, so training data is likely close to t
 
 Since this is a pre-trained model, there was fortunately no need to store or handle a 124M Tweet corpus.
 
-
-### Inference Data
+## Inference Data
 
 Data for inference comes from Twitter itself via the [filtered stream endpoint](https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/introduction), accessible via `POST /2/tweets/search/stream`. Rules can be set for filtering this stream via the [stream rules endpoint](https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/api-reference/post-tweets-search-stream-rules), and such rules were created to target any content containing "Russia" or "Ukraine". This is a broad search, but initial exploration showed mentions of these counties on Twitter were nearly always pertaining to the current conflict.
 
