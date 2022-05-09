@@ -26,4 +26,4 @@ The images for this project are hosted on DockerHub [here](https://hub.docker.co
 
 ### Code Demonstration
 
-The system is quite large and requires a local Kubernetes cluster, but a [sample walkthrough](/heartbeat/demo) can be found in the navigation on the left. This walkthrough details the processes running in the cluster without running the Kafka cluster, Kubernetes node, or the database.
+The system is quite large and requires a local Kubernetes cluster, but a [sample walkthrough](/heartbeat/demo) can be found in the navigation on the left. This walkthrough details the processes running in the cluster without running the Kafka cluster, Kubernetes node, or the database. This notebook can be found in the [GitHub repo](https://github.com/jklasa/heartbeat/blob/main/demo.ipynb) as well.
