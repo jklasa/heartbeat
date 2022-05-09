@@ -20,16 +20,33 @@ From personal experience, containers are the way to go for deployment of program
 
 Deployment was also made easier by adding in already-configured Helm charts for both Confluent and InfluxDB (to be discussed later). Helm charts are tools used for Kubernetes for template-based deployments.
 
-A dashboard 
+A dashboard was run for the local Kubernetes cluster that made management of the great number of pods possible.
+
+Kubernetes configuration files can be found in the GitHub repo [here](https://github.com/jklasa/heartbeat/tree/main/k8s).
 
 ## Confluent for Kubernetes and Kafka
 
+A personal version of [Confluent](https://www.confluent.io/blog/confluent-for-kubernetes-offers-cloud-native-kafka-automation/) was run within Kubernetes. This part of the system added the messaging service Kafka and its components: ksqlDB, a SchemaRegistry service, Kafka brokers, a Confluent operator, and a Kafka rest proxy.
+
+Kafka was the glue holding together all individual parts of the system via modeled messages.
+
 ## Services
+
+There were 3 main processes happening in the system, detailed below. Each of these services has an associated Docker image and deployment running in Kubernetes.
 
 ### Twitter Ingest
 
+Retrieve data from Twitter via a filtered stream and push each Tweet to Kafka. The filter is based on dynamic tasking: the system accepts search rules that can be used to filter Tweets and assign topic tags.
+
 ### Analysis
+
+Retrieve Tweets from Kafka, run them through a sentiment analysis model, and push them back to Kafka with their sentiment results.
 
 ### Database Storage
 
+Retrieve Tweets and their sentiments from Kafka and push them to final storage in time series database for aggregation and analysis.
+
 ## InfluxDB
+
+For this project, I used [InfluxDB](https://github.com/influxdata/influxdb), an efficient time-series database for storing the sentiments according to the timestamps at which they were retrieved. The InfluxDB deployment I used also had readily-available dashboards for data visualization and analysis of the Twitter sentiment results.
+
