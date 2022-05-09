@@ -12,3 +12,7 @@ footer_content: "2022 JHU Joel Klasa"
 aux_links:
   "jklasa1":
     - "//github.com/jklasa"
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+  
