@@ -15,6 +15,8 @@ This system is based on the inference of data moreso than training of models on 
 
 This Tweet corpus is a recent development, so training data is likely close to the distribution of current Tweets. Further, the model was designed from exploration of language shifting, so it is designed with time and change in mind. This is perfect for the application of Heartbeat since its modus operandi is the analysis of Tweet data over time.
 
+Since this is a pre-trained model, there was fortunately no need to store or handle a 124M Tweet corpus.
+
 
 ### Inference Data
 
@@ -23,3 +25,5 @@ Data for inference comes from Twitter itself via the [filtered stream endpoint](
 To access this data, a [Twitter developer account](https://developer.twitter.com/en) was made, and a request was made to extend the account to have [Elevated access](https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-level) for access to 2M Tweets per month instead of the standard 500K.
 
 There is a lot of data available for Tweets, but the only parts used in this system are the text content of the Tweets, their IDs for later reference, and their `created_at` timestamp. These 3 attributes can cover everything the system requires.
+
+Tweet content is small but can accumulate given enough scale, so consideration was made into what data remains stored. In the processing of the data, actual text is discarded and only sentiment values were stored. This enabled storage of many tweets on my humble local system.
