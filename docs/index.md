@@ -10,7 +10,7 @@ permalink: /
 
 Welcome to Heartbeat, my systems project for JHU's EN.705.603.81.SP22 Creating AI-Enabled Systems course. Use the links below and navigation on the left to access content.
 
-## Components
+## Components 
 
 ### Project Documentation
 
