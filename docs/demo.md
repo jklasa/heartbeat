@@ -312,7 +312,7 @@ Make a new Kafka service.
 stream = KafkaStream()
 ```
 
-    [36mKAFKA [0mConnected to new Kafka broker
+    KAFKA Connected to new Kafka broker
 
 
 Make a producer for moving data into Kafka and a service that will pull from Twitter and send to Kafka via this producer.
@@ -331,11 +331,11 @@ t = ingest.start(num=5)
 ingest.poll()
 ```
 
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 6863 = {'task': 'RU-UKR', 'content': 'featured hardly office turtle lonely expense pillow easily creating fully kijiji bankruptcy balanced despite name', 'time': 1652077269.927678}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 7655 = {'task': 'RU-UKR', 'content': 'crude widescreen personal movies compaq ntsc thursday forces museum african believed findlaw profits playback charleston', 'time': 1652077269.927722}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 8013 = {'task': 'RU-UKR', 'content': 'sc hardwood suddenly specs filter losses exact attractive sleep aud doug faith auburn gmc accordance', 'time': 1652077269.927738}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 2303 = {'task': 'RU-UKR', 'content': 'guard effectiveness campbell administration housing shaw republican ada satisfied hygiene center ridge motherboard engaging thou', 'time': 1652077269.927753}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 1315 = {'task': 'RU-UKR', 'content': 'constantly logs phones whereas summary disorders facility concern waterproof exam rand totally sigma dosage winner', 'time': 1652077269.927766}
+    KAFKA ingest ADD 6863 = {'task': 'RU-UKR', 'content': 'featured hardly office turtle lonely expense pillow easily creating fully kijiji bankruptcy balanced despite name', 'time': 1652077269.927678}
+    KAFKA ingest ADD 7655 = {'task': 'RU-UKR', 'content': 'crude widescreen personal movies compaq ntsc thursday forces museum african believed findlaw profits playback charleston', 'time': 1652077269.927722}
+    KAFKA ingest ADD 8013 = {'task': 'RU-UKR', 'content': 'sc hardwood suddenly specs filter losses exact attractive sleep aud doug faith auburn gmc accordance', 'time': 1652077269.927738}
+    KAFKA ingest ADD 2303 = {'task': 'RU-UKR', 'content': 'guard effectiveness campbell administration housing shaw republican ada satisfied hygiene center ridge motherboard engaging thou', 'time': 1652077269.927753}
+    KAFKA ingest ADD 1315 = {'task': 'RU-UKR', 'content': 'constantly logs phones whereas summary disorders facility concern waterproof exam rand totally sigma dosage winner', 'time': 1652077269.927766}
     >>> Exiting Twitter ingest
 
 
@@ -637,47 +637,47 @@ for t in threads:
     t.join()
 ```
 
-    [36mKAFKA [0mConnected to new Kafka broker
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 451 = {'task': 'RU-UKR', 'content': 'israel something aware nano drop imagination synthetic wireless kay cartridges few engage industry gathered war', 'time': 1652077277.386532}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 1049 = {'task': 'RU-UKR', 'content': 'herbal tool reflect collapse interpretation looks tables burton bean mitsubishi frozen wars belfast cohen assistant', 'time': 1652077277.386616}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 6458 = {'task': 'RU-UKR', 'content': 'improvement expense shoes formal specific summer love save samba carroll algorithms diseases hungarian date registry', 'time': 1652077277.386634}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 6163 = {'task': 'RU-UKR', 'content': 'raleigh flooring leaf pdas johnston showed ecology aspect elimination class res ultra eight releases of', 'time': 1652077277.38666}
-    [36mKAFKA [0m[35mingest [0m[32mADD[0m 2627 = {'task': 'RU-UKR', 'content': 'pro revision job testimony interior experiments consent swedish afghanistan diego format polished revelation grand on', 'time': 1652077277.386681}
+    KAFKA Connected to new Kafka broker
+    KAFKA ingest ADD 451 = {'task': 'RU-UKR', 'content': 'israel something aware nano drop imagination synthetic wireless kay cartridges few engage industry gathered war', 'time': 1652077277.386532}
+    KAFKA ingest ADD 1049 = {'task': 'RU-UKR', 'content': 'herbal tool reflect collapse interpretation looks tables burton bean mitsubishi frozen wars belfast cohen assistant', 'time': 1652077277.386616}
+    KAFKA ingest ADD 6458 = {'task': 'RU-UKR', 'content': 'improvement expense shoes formal specific summer love save samba carroll algorithms diseases hungarian date registry', 'time': 1652077277.386634}
+    KAFKA ingest ADD 6163 = {'task': 'RU-UKR', 'content': 'raleigh flooring leaf pdas johnston showed ecology aspect elimination class res ultra eight releases of', 'time': 1652077277.38666}
+    KAFKA ingest ADD 2627 = {'task': 'RU-UKR', 'content': 'pro revision job testimony interior experiments consent swedish afghanistan diego format polished revelation grand on', 'time': 1652077277.386681}
     >>> Exiting Twitter ingest
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m 451 = {'task': 'RU-UKR', 'content': 'israel something aware nano drop imagination synthetic wireless kay cartridges few engage industry gathered war', 'time': 1652077277.386532}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[32mADD[0m 451 = {'task': 'RU-UKR', 'time': 1652077277.386532, 'pos': 0.0462605, 'neu': 0.81405675, 'neg': 0.13968267}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m 451 = {'task': 'RU-UKR', 'time': 1652077277.386532, 'pos': 0.0462605, 'neu': 0.81405675, 'neg': 0.13968267}
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m 1049 = {'task': 'RU-UKR', 'content': 'herbal tool reflect collapse interpretation looks tables burton bean mitsubishi frozen wars belfast cohen assistant', 'time': 1652077277.386616}
-    [38;5;249mDB [0m[32mADD[0m [451, 'RU-UKR', 1652077277.386532, 0.0462605, 0.81405675, 0.13968267]
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[32mADD[0m 1049 = {'task': 'RU-UKR', 'time': 1652077277.386616, 'pos': 0.03076393, 'neu': 0.8217568, 'neg': 0.1474793}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m 1049 = {'task': 'RU-UKR', 'time': 1652077277.386616, 'pos': 0.03076393, 'neu': 0.8217568, 'neg': 0.1474793}
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m 6458 = {'task': 'RU-UKR', 'content': 'improvement expense shoes formal specific summer love save samba carroll algorithms diseases hungarian date registry', 'time': 1652077277.386634}
-    [38;5;249mDB [0m[32mADD[0m [1049, 'RU-UKR', 1652077277.386616, 0.03076393, 0.8217568, 0.1474793]
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[32mADD[0m 6458 = {'task': 'RU-UKR', 'time': 1652077277.386634, 'pos': 0.06477577, 'neu': 0.8149433, 'neg': 0.120280795}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m 6458 = {'task': 'RU-UKR', 'time': 1652077277.386634, 'pos': 0.06477577, 'neu': 0.8149433, 'neg': 0.120280795}
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m 6163 = {'task': 'RU-UKR', 'content': 'raleigh flooring leaf pdas johnston showed ecology aspect elimination class res ultra eight releases of', 'time': 1652077277.38666}
-    [38;5;249mDB [0m[32mADD[0m [6458, 'RU-UKR', 1652077277.386634, 0.06477577, 0.8149433, 0.120280795]
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[32mADD[0m 6163 = {'task': 'RU-UKR', 'time': 1652077277.38666, 'pos': 0.04155181, 'neu': 0.9429347, 'neg': 0.015513566}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m 6163 = {'task': 'RU-UKR', 'time': 1652077277.38666, 'pos': 0.04155181, 'neu': 0.9429347, 'neg': 0.015513566}
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m 2627 = {'task': 'RU-UKR', 'content': 'pro revision job testimony interior experiments consent swedish afghanistan diego format polished revelation grand on', 'time': 1652077277.386681}
-    [38;5;249mDB [0m[32mADD[0m [6163, 'RU-UKR', 1652077277.38666, 0.04155181, 0.9429347, 0.015513566]
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35msentiment [0m[32mADD[0m 2627 = {'task': 'RU-UKR', 'time': 1652077277.386681, 'pos': 0.12736656, 'neu': 0.8120202, 'neg': 0.060613222}
-    [36mKAFKA [0m[35msentiment [0m[31mGET[0m 2627 = {'task': 'RU-UKR', 'time': 1652077277.386681, 'pos': 0.12736656, 'neu': 0.8120202, 'neg': 0.060613222}
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m EMPTY
-    [38;5;249mDB [0m[32mADD[0m [2627, 'RU-UKR', 1652077277.386681, 0.12736656, 0.8120202, 0.060613222]
+    KAFKA ingest GET 451 = {'task': 'RU-UKR', 'content': 'israel something aware nano drop imagination synthetic wireless kay cartridges few engage industry gathered war', 'time': 1652077277.386532}
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment ADD 451 = {'task': 'RU-UKR', 'time': 1652077277.386532, 'pos': 0.0462605, 'neu': 0.81405675, 'neg': 0.13968267}
+    KAFKA sentiment GET 451 = {'task': 'RU-UKR', 'time': 1652077277.386532, 'pos': 0.0462605, 'neu': 0.81405675, 'neg': 0.13968267}
+    KAFKA ingest GET 1049 = {'task': 'RU-UKR', 'content': 'herbal tool reflect collapse interpretation looks tables burton bean mitsubishi frozen wars belfast cohen assistant', 'time': 1652077277.386616}
+    DB ADD [451, 'RU-UKR', 1652077277.386532, 0.0462605, 0.81405675, 0.13968267]
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment ADD 1049 = {'task': 'RU-UKR', 'time': 1652077277.386616, 'pos': 0.03076393, 'neu': 0.8217568, 'neg': 0.1474793}
+    KAFKA sentiment GET 1049 = {'task': 'RU-UKR', 'time': 1652077277.386616, 'pos': 0.03076393, 'neu': 0.8217568, 'neg': 0.1474793}
+    KAFKA ingest GET 6458 = {'task': 'RU-UKR', 'content': 'improvement expense shoes formal specific summer love save samba carroll algorithms diseases hungarian date registry', 'time': 1652077277.386634}
+    DB ADD [1049, 'RU-UKR', 1652077277.386616, 0.03076393, 0.8217568, 0.1474793]
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment ADD 6458 = {'task': 'RU-UKR', 'time': 1652077277.386634, 'pos': 0.06477577, 'neu': 0.8149433, 'neg': 0.120280795}
+    KAFKA sentiment GET 6458 = {'task': 'RU-UKR', 'time': 1652077277.386634, 'pos': 0.06477577, 'neu': 0.8149433, 'neg': 0.120280795}
+    KAFKA ingest GET 6163 = {'task': 'RU-UKR', 'content': 'raleigh flooring leaf pdas johnston showed ecology aspect elimination class res ultra eight releases of', 'time': 1652077277.38666}
+    DB ADDm [6458, 'RU-UKR', 1652077277.386634, 0.06477577, 0.8149433, 0.120280795]
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment ADD 6163 = {'task': 'RU-UKR', 'time': 1652077277.38666, 'pos': 0.04155181, 'neu': 0.9429347, 'neg': 0.015513566}
+    KAFKA sentiment GET 6163 = {'task': 'RU-UKR', 'time': 1652077277.38666, 'pos': 0.04155181, 'neu': 0.9429347, 'neg': 0.015513566}
+    KAFKA ingest GET 2627 = {'task': 'RU-UKR', 'content': 'pro revision job testimony interior experiments consent swedish afghanistan diego format polished revelation grand on', 'time': 1652077277.386681}
+    DB ADD [6163, 'RU-UKR', 1652077277.38666, 0.04155181, 0.9429347, 0.015513566]
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment GET EMPTY
+    KAFKA sentiment ADD 2627 = {'task': 'RU-UKR', 'time': 1652077277.386681, 'pos': 0.12736656, 'neu': 0.8120202, 'neg': 0.060613222}
+    KAFKA sentiment GET 2627 = {'task': 'RU-UKR', 'time': 1652077277.386681, 'pos': 0.12736656, 'neu': 0.8120202, 'neg': 0.060613222}
+    KAFKA ingest GET EMPTY
+    DB ADD [2627, 'RU-UKR', 1652077277.386681, 0.12736656, 0.8120202, 0.060613222]
     >>> Exiting data storage
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m EMPTY
-    [36mKAFKA [0m[35mingest [0m[31mGET[0m EMPTY
+    KAFKA ingest GET EMPTY
+    KAFKA ingest GET EMPTY
+    KAFKA ingest GET EMPTY
+    KAFKA ingest GET EMPTY
     >>> Exiting sentiment analysis
 
 
