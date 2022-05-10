@@ -11,7 +11,7 @@ parent: 6Ds
 
 ## Failure Modes
 
-Failure modes in this system largely concerned the internal manipulation of data and the sourcing of that data. There is a lot of data to track and analyze, which produces difficulties on its own. The sourcing of that data is entirely user dependent, and can largely shift the results of the Heartbeat analysis. Careful consideration needs to be used when setting up Heartbeat and analyzing its results. Notably, external or expert assistance could be valuable here, as described in the section on [domain expertise](/heartbeat/6ds/domain_expertise).
+Failure modes in this system largely concerned the internal manipulation of data and the sourcing of that data. There is a lot of data to track and analyze, which produces difficulties on its own. The sourcing of that data is entirely user dependent, and can largely shift the results of the Heartbeat analysis. Careful consideration needs to be used when setting up Heartbeat and analyzing its results. Notably, external or expert assistance could be valuable here, as described in the section on [domain expertise](/heartbeat/6ds/domain-expertise).
 
 ## Bias and Ethics
 
